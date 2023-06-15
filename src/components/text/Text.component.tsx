@@ -1,13 +1,19 @@
-import React from "react";
+import React from 'react';
 
-import { ITextProps } from "./Text.types";
+import { Props } from './Text.types';
 
-function Text<C extends React.ElementType = "div">(props: ITextProps<C>) {
-  const { as, children, ...restProps } = props;
+function Text<C extends React.ElementType = 'div'>(props: Props<C>) {
+  const { as, children, color, ...restProps } = props;
 
-  const Component = as || "div";
+  const Component = as || 'div';
 
-  return <Component {...restProps}>{children}</Component>;
+  const style = color ? { style: { color } } : {};
+
+  return (
+    <Component {...restProps} {...style}>
+      {children}
+    </Component>
+  );
 }
 
 export default Text;
