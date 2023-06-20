@@ -1,3 +1,3 @@
 # Polymorphic Library
 
-* <Text /> component
+* `<Text />` component
